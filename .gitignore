@@ -1,2 +1,9 @@
 /build
 /install
+/.idea
+/.gradle
+
+/oggvorbis/build
+/oggvorbis/.cxx
+
+local.properties

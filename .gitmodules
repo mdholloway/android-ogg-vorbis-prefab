@@ -1,6 +1,6 @@
 [submodule "sources/ogg"]
-	path = sources/ogg
+	path = third_party/ogg
 	url = https://github.com/xiph/ogg.git
 [submodule "sources/vorbis"]
-	path = sources/vorbis
+	path = third_party/vorbis
 	url = https://github.com/xiph/vorbis.git
