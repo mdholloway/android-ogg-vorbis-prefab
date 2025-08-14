@@ -1,7 +1,6 @@
-import com.android.build.gradle.internal.cxx.configure.CmakeProperty
-
 plugins {
   alias(libs.plugins.android.library)
+  id("maven-publish")
 }
 
 android {
@@ -40,6 +39,26 @@ android {
     cmake {
       path = file("CMakeLists.txt")
       version = "3.28.0+"
+    }
+  }
+
+  publishing {
+    singleVariant("release")
+  }
+}
+
+afterEvaluate {
+  publishing {
+    publications {
+      create<MavenPublication>("releaseAar") {
+        from(components["release"])
+        groupId = "org.mdholloway"
+        artifactId = "oggvorbis"
+        version = "1.0.0"
+      }
+    }
+    repositories {
+      mavenLocal()
     }
   }
 }
