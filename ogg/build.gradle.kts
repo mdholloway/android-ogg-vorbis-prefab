@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-  namespace = "org.mdholloway.oggvorbis"
+  namespace = "org.mdholloway.ogg"
   compileSdk=36
 
   defaultConfig {
@@ -12,8 +12,8 @@ android {
     externalNativeBuild {
       cmake {
         arguments += listOf(
-          "-DANDROID_STL=c++_shared",
-          "-DCMAKE_POLICY_DEFAULT_CMP0057=NEW",
+          "-DBUILD_SHARED_LIBS=ON",
+	  "-DANDROID_STL=none",
         )
       }
     }
@@ -29,9 +29,6 @@ android {
   prefab {
     create("ogg") {
       headers = "src/main/prefab-export/ogg/include"
-    }
-    create("vorbis") {
-      headers = "src/main/prefab-export/vorbis/include"
     }
   }
 
@@ -53,7 +50,7 @@ afterEvaluate {
       create<MavenPublication>("releaseAar") {
         from(components["release"])
         groupId = "org.mdholloway"
-        artifactId = "oggvorbis"
+        artifactId = "ogg"
         version = "1.0.0"
       }
     }

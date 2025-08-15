@@ -3,7 +3,9 @@
 /.idea
 /.gradle
 
-/oggvorbis/build
-/oggvorbis/.cxx
+/ogg/build
+/ogg/.cxx
+/vorbis/build
+/vorbis/.cxx
 
 local.properties

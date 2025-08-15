@@ -2,10 +2,20 @@ pluginManagement {
     repositories {
         google()
         mavenCentral()
+	mavenLocal()
         gradlePluginPortal()
     }
 }
 
-rootProject.name = "android-ogg-vorbis-prefab"
-include(":oggvorbis")
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+	mavenCentral()
+	mavenLocal()
+    }
+}
+
+rootProject.name = "ogg-vorbis-prefab"
+include(":ogg", ":vorbis")
 
