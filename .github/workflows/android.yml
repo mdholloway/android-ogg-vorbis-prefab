@@ -24,5 +24,11 @@ jobs:
         cache: gradle
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Assemble Ogg debug and release builds
+      run: ./gradlew :ogg:assemble
+    - name: Publish Ogg to local Maven repository
+      run: ./gradlew :ogg:publishAllPublicationsToMavenLocal
+    - name: Assemble Vorbis debug and release builds
+      run: ./gradlew :vorbis:assemble
+    - name: Publish Vorbis to local Maven repository
+      run: ./gradlew :vorbis:publishAllPublicationsToMavenLocal
