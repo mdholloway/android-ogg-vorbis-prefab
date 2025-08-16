@@ -28,7 +28,6 @@ android {
 ```cmake
 find_package(ogg REQUIRED CONFIG)
 find_package(vorbis REQUIRED CONFIG)
-find_package(vorbisfile REQUIRED CONFIG)
 
 target_link_libraries(your_target
     PRIVATE
