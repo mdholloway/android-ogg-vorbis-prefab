@@ -13,7 +13,7 @@ android {
       cmake {
         arguments += listOf(
           "-DBUILD_SHARED_LIBS=ON",
-	  "-DANDROID_STL=none",
+	      "-DANDROID_STL=none",
         )
       }
     }
@@ -40,6 +40,7 @@ android {
   }
 
   publishing {
+    singleVariant("debug")
     singleVariant("release")
   }
 }
@@ -47,6 +48,12 @@ android {
 afterEvaluate {
   publishing {
     publications {
+      create<MavenPublication>("debugAar") {
+        from(components["debug"])
+        groupId = "org.mdholloway"
+        artifactId = "ogg"
+        version = "1.0.0-debug"
+      }
       create<MavenPublication>("releaseAar") {
         from(components["release"])
         groupId = "org.mdholloway"

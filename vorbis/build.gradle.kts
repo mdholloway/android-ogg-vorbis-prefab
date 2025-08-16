@@ -14,8 +14,8 @@ android {
         arguments += listOf(
           "-DBUILD_SHARED_LIBS=ON",
           "-DCMAKE_POLICY_DEFAULT_CMP0057=NEW",
-	  "-DANDROID_STL=none",
-	  "-DCMAKE_IGNORE_PATH=/usr;/usr/local",
+	      "-DANDROID_STL=none",
+	      "-DCMAKE_IGNORE_PATH=/usr;/usr/local",
         )
       }
     }
@@ -48,7 +48,14 @@ android {
     }
   }
 
+  packaging {
+    jniLibs {
+      useLegacyPackaging = false
+    }
+  }
+
   publishing {
+    singleVariant("debug")
     singleVariant("release")
   }
 }
@@ -60,6 +67,12 @@ dependencies {
 afterEvaluate {
   publishing {
     publications {
+      create<MavenPublication>("debugAar") {
+        from(components["debug"])
+        groupId = "org.mdholloway"
+        artifactId = "vorbis"
+        version = "1.0.0-debug"
+      }
       create<MavenPublication>("releaseAar") {
         from(components["release"])
         groupId = "org.mdholloway"

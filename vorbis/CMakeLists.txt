@@ -43,3 +43,7 @@ set(OGG_FOUND       TRUE               CACHE BOOL "Ogg found via prefab bridge")
 
 add_subdirectory(${VORBIS_LIBRARY} ${CMAKE_BINARY_DIR}/vorbis EXCLUDE_FROM_ALL)
 
+target_link_libraries(vorbis      PUBLIC ogg::ogg)
+target_link_libraries(vorbisfile  PUBLIC vorbis ogg::ogg)
+target_link_libraries(vorbisenc   PUBLIC vorbis ogg::ogg)
+
