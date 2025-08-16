@@ -14,6 +14,9 @@ It builds Ogg and Vorbis as shared libraries, wraps them in AARs with Prefab met
 dependencies {
     implementation("org.mdholloway:ogg:1.0.0")
     implementation("org.mdholloway:vorbis:1.0.0")
+
+    debugImplementation("org.mdholloway:ogg:1.0.0-debug")
+    debugImplementation("org.mdholloway:vorbis:1.0.0-debug")
 }
 ```
 2.	Enable Prefab in your consumer app’s Gradle config:
